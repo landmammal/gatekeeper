@@ -1,5 +1,5 @@
-import express from "express";
-import users from "./users.js";
+const express = require("express");
+const users = require("./users");
 
 // initializing router middleware
 const router = express.Router();

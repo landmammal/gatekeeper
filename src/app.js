@@ -1,9 +1,10 @@
 // to access variables use process.env.NAMEOFVARIABLE
-import "dotenv/config";
-import cors from "cors";
-import express from "express";
+require("dotenv/config");
 
-import routes from "../routes";
+const cors = require("cors");
+const express = require("express");
+const routes = require("./routes");
+const errorHandler = require("../config/middleware/error_handler");
 
 // starting application
 const app = express();
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // application middleware
-app.use(cors()); // handles crossorigin request defaul is *
+app.use(cors()); // handles crossorigin request default is *
 
 // Route Management
 app.use(routes);
