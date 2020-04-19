@@ -1,13 +1,25 @@
 {
   "extends": ["eslint:recommended", "prettier"],
-  "rules": {
-    "no-console": 1
-  },
-  "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
   "env": {
-    "es6": true,
     "browser": true,
+    "commonjs": true,
     "node": true
   },
-  "settings": {}
+  "plugins": ["prettier"],
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "none"
+      }
+    ],
+    "no-console": "off",
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+        "message": "Unexpected property on console object was called"
+      }
+    ]
+  }
 }

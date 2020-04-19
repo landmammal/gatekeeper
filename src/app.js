@@ -9,8 +9,6 @@ const errorHandler = require("../config/middleware/error_handler");
 // starting application
 const app = express();
 
-// Database connection??
-
 // parse incoming request
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

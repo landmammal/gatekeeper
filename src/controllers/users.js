@@ -1,59 +1,41 @@
+const db = require("../models");
+const User = db.User;
 // compares user input to db input and creates a session for them.
-exports.loginUser = async (req, res, next) => {
-  //   if (req.body.email && req.body.password) {
-  //     await req.context.models.User.authenticate(
-  //       req.body.email,
-  //       req.body.password,
-  //       function (err, user) {
-  //         if (err || !user) {
-  //           let err = new Error("Wrong email or password");
-  //           err.status = 401;
-  //           return next(err);
-  //         } else {
-  //           req.session.userId = user._id;
-  //           return res.redirect("./profile");
-  //         }
-  //       }
-  //     );
-  //   } else {
-  //     let err = new Error("Email and Password are required");
-  //     err.status = 401;
-  //     return next(err);
-  //   }
-};
+exports.loginUser = async (req, res, next) => {};
 
 // adds users to db, validates inputs and creates sessions
 exports.registerUser = async (req, res, next) => {
-  //   if (
-  //     req.body.email &&
-  //     req.body.name &&
-  //     req.body.password &&
-  //     req.body.confirmPassword
-  //   ) {
-  //     // confirm passwords match
-  //     if (req.body.password !== req.body.confirmPassword) {
-  //       let err = new Error("Passwords dont match.");
-  //       err.status = 400;
-  //       return next(err);
-  //     }
-  //     // create object with form input
-  //     let userDetails = {
-  //       email: req.body.email,
-  //       name: req.body.name,
-  //       password: req.body.password,
-  //     };
-  //     // insert new user into mongo db
-  //     await req.context.models.User.create(userDetails, (err, user) => {
-  //       if (err) {
-  //         return next(err);
-  //       } else {
-  //         req.session.userId = user._id;
-  //         return res.redirect("/");
-  //       }
-  //     });
-  //   } else {
-  //     let err = new Error("All fields required.");
+  // if (
+  //   req.body.email &&
+  //   req.body.fullname &&
+  //   req.body.password &&
+  //   req.body.confirmPassword
+  // ) {
+  //   // confirm passwords match
+  //   if (req.body.password !== req.body.confirmPassword) {
+  //     let err = new Error("Passwords don't match.");
   //     err.status = 400;
   //     return next(err);
   //   }
+  //   // create object with form input
+  //   let userDetails = {
+  //     email: req.body.email,
+  //     fullname: req.body.fullname,
+  //     password: req.body.password,
+  //   };
+  //   // insert new user into mongo db
+  //   await User.create(userDetails, (err, user) => {
+  //     if (err) {
+  //       return next(err);
+  //     } else {
+  //       // jwt token
+  //       req.session.userId = user._id;
+  //       return res.redirect("/");
+  //     }
+  //   });
+  // } else {
+  //   let err = new Error("All fields required.");
+  //   err.status = 400;
+  //   return next(err);
+  // }
 };
