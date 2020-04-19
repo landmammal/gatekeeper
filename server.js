@@ -11,3 +11,5 @@ const server = http.createServer(app);
 
 server.listen(port);
 console.log("server is live on port " + port + "...");
+
+module.exports = app;
