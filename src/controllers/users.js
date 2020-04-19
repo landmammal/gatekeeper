@@ -1,5 +1,5 @@
-const db = require("../models");
-const User = db.User;
+// const db = require("../models");
+// const User = db.User;
 // compares user input to db input and creates a session for them.
 exports.loginUser = async (req, res, next) => {};
 
