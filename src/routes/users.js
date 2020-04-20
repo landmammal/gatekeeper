@@ -4,9 +4,9 @@ const usersController = require("../controllers/users");
 const router = Router();
 
 // POST /login handles users log in
-router.post("/login", usersController.loginUser);
+router.post("/", usersController.loginUser);
 
 // POST /register registers users to app
-router.post("/register", usersController.registerUser);
+router.post("/api/register", usersController.registerUser);
 
 module.exports = router;
