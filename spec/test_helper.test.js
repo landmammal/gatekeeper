@@ -5,6 +5,7 @@ mongoose.Promise = global.Promise;
 
 before((done) => {
   mongoose.connect("mongodb://localhost/gatekeeper_test", {
+    useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
@@ -14,13 +15,9 @@ before((done) => {
       console.warn("Error : ", error);
     });
 });
-//Called hooks which runs before something.
-beforeEach((done) => {
-  if (mongoose.connection.collections.length > 0) {
-    mongoose.connection.collections.users.drop(() => {
-      //this function runs after the drop is completed
-      done(); //go ahead everything is done now.
-    });
-  }
-  done();
+
+after(function (done) {
+  mongoose.connection.db.dropDatabase(function () {
+    mongoose.connection.close(done);
+  });
 });
